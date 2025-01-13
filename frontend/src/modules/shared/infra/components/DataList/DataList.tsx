@@ -3,10 +3,10 @@ import { DataGrid } from "@mui/x-data-grid";
 
 export function DataList({ columns, rows }: Props) {
   return (
-    <Box sx={{ height: 400, width: "100%" }}>
+    <Box sx={{ height: 600, width: "100%" }}>
       <DataGrid
         rows={rows}
-        columns={columns}
+        columns={columns.map((column) => ({ ...column, flex: 1 }))}
         initialState={{
           pagination: {
             paginationModel: {
