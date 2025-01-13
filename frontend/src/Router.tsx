@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { PasswordListPage } from "./modules/credential/pages/PasswordListPage";
+import { CredentialListPage } from "./modules/credential/pages/CredentialListPage";
 import { CredentialProviders } from "./modules/credential/CredentialProviders";
 
 export function Router() {
@@ -8,7 +8,7 @@ export function Router() {
       path: "",
       element: (
         <CredentialProviders>
-          <PasswordListPage />
+          <CredentialListPage />
         </CredentialProviders>
       ),
     },
