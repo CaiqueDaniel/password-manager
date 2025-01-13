@@ -18,10 +18,23 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": "src",
+    "types": [
+      "vitest/globals"
+    ],
+    "paths": {
+      "~/*": [
+        "*"
+      ]
+    }
+  },
+  "watchOptions": {
+    "watchFile": "fixedPollingInterval"
   },
   "include": [
-    "src"
+    "src",
+    "tests"
   ],
   "references": [
     {
