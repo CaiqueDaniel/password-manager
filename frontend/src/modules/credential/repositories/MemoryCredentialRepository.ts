@@ -15,4 +15,8 @@ export class MemoryCredentialRepository implements CredentialRepository {
   async all(): Promise<Credential[]> {
     return Array.from(this.items.values());
   }
+
+  clear() {
+    this.items.clear();
+  }
 }
