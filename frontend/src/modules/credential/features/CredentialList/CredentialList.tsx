@@ -1,7 +1,7 @@
 import { DataList } from "~/modules/shared/infra/components/DataList/DataList";
-import { useCredentialListViewModel } from "./useCredentialListViewModel";
+import { useCredentialListPresenter } from "./useCredentialListPresenter";
 
 export function CredentialList() {
-  const { columns, rows } = useCredentialListViewModel();
+  const { columns, rows } = useCredentialListPresenter();
   return <DataList columns={columns} rows={rows} />;
 }

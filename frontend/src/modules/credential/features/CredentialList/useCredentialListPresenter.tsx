@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useCredentialListContext } from "./CredentialListContext";
 
-export function useCredentialListViewModel() {
+export function useCredentialListPresenter() {
   const [rows, setRows] = useState<Record<string, string>[]>([]);
   const { listCredential } = useCredentialListContext();
 

@@ -6,7 +6,11 @@ export function DataList({ columns, rows }: Props) {
     <Box sx={{ height: 600, width: "100%" }}>
       <DataGrid
         rows={rows}
-        columns={columns.map((column) => ({ ...column, flex: 1 }))}
+        columns={columns.map((column) => ({
+          ...column,
+          flex: 1,
+          renderHeader: () => <b>{column.headerName}</b>,
+        }))}
         initialState={{
           pagination: {
             paginationModel: {
