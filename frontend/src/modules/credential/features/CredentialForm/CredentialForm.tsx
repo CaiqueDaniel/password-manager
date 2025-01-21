@@ -4,7 +4,8 @@ import { Field } from "formik";
 import { Box, Button, TextField, Typography } from "@mui/material";
 
 export function CredentialForm() {
-  const { initialValues, onSubmit } = useCreatentialFormPresenter();
+  const { initialValues, isSubmiting, onSubmit } =
+    useCreatentialFormPresenter();
 
   return (
     <Form initialValues={initialValues} onSubmit={onSubmit}>
@@ -32,7 +33,12 @@ export function CredentialForm() {
         <Button color="error" variant="contained">
           Cancelar
         </Button>
-        <Button type="submit" color="primary" variant="contained">
+        <Button
+          type="submit"
+          color="primary"
+          variant="contained"
+          disabled={isSubmiting}
+        >
           Concluir
         </Button>
       </Box>

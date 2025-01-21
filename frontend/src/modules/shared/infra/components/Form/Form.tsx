@@ -1,5 +1,5 @@
-import { Box, Button } from "@mui/material";
-import { Formik } from "formik";
+import { Box } from "@mui/material";
+import { Formik, Form as FormikForm } from "formik";
 import { PropsWithChildren } from "react";
 
 export function Form<I extends Record<string, any>>({
@@ -9,7 +9,11 @@ export function Form<I extends Record<string, any>>({
 }: Props<I>) {
   return (
     <Formik<I> initialValues={initialValues} onSubmit={onSubmit}>
-      {() => <Box>{children}</Box>}
+      {() => (
+        <FormikForm>
+          <Box>{children}</Box>
+        </FormikForm>
+      )}
     </Formik>
   );
 }
