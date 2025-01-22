@@ -1,13 +1,17 @@
+import { Mocked } from "vitest";
 import { CreateCredential } from "~/modules/credential/core/application/CreateCredential";
 import { MemoryCredentialRepository } from "~/modules/credential/repositories/MemoryCredentialRepository";
+import { BusDispacher } from "~/modules/shared/core/application/BusDispacher";
 
 describe("CreateCredential unit tests", () => {
   let sut: CreateCredential;
   let repository: MemoryCredentialRepository;
+  let dispatcher: Mocked<BusDispacher>;
 
   beforeAll(() => {
+    dispatcher = { dispatch: vitest.fn() };
     repository = new MemoryCredentialRepository();
-    sut = new CreateCredential(repository);
+    sut = new CreateCredential(repository, dispatcher);
   });
 
   beforeEach(() => {
@@ -21,5 +25,6 @@ describe("CreateCredential unit tests", () => {
     });
 
     expect(await repository.all()).toHaveLength(1);
+    expect(dispatcher.dispatch).toHaveBeenCalled();
   });
 });

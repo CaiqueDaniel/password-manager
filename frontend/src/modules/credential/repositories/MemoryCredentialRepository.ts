@@ -9,7 +9,11 @@ export class MemoryCredentialRepository implements CredentialRepository {
   }
 
   async add(entity: Credential): Promise<void> {
-    this.items.set(entity.id ?? "", entity);
+    const id = entity.id ?? crypto.randomUUID();
+    this.items.set(
+      id,
+      new Credential(entity.origin, entity.username, entity.password, id)
+    );
   }
 
   async all(): Promise<Credential[]> {

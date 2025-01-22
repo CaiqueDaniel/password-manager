@@ -3,11 +3,11 @@ import { useCredentialListContext } from "./CredentialListContext";
 
 export function useCredentialListPresenter() {
   const [rows, setRows] = useState<Record<string, string>[]>([]);
-  const { listCredential } = useCredentialListContext();
+  const { listCredential, credentialListId } = useCredentialListContext();
 
   useEffect(() => {
     listCredential.execute().then(setRows);
-  }, []);
+  }, [credentialListId]);
 
   return { columns, rows };
 }

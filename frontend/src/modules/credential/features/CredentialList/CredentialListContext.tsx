@@ -12,4 +12,5 @@ export function useCredentialListContext() {
 
 type Context = {
   listCredential: ListCredential;
+  credentialListId: string;
 };
